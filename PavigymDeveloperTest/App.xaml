@@ -1,0 +1,21 @@
+<Application x:Class="PavigymDeveloperTest.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:PavigymDeveloperTest" StartupUri="MainWindow.xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" d1p1:Ignorable="d" xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
+    <Application.Resources>
+        <ResourceDictionary>
+            <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:PavigymDeveloperTest.ViewModel" />
+
+            <Style TargetType="TextBlock" x:Key="titleStyle">
+                <Setter Property="FontSize" Value="17" />
+                <Setter Property="Foreground" Value="DarkBlue" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+            </Style>
+
+            <Style TargetType="TextBlock">
+                <Setter Property="FontSize" Value="13" />
+            </Style>
+
+            <Style TargetType="Window" x:Key="WindowStyle">
+                <Setter Property="Background" Value="GhostWhite" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

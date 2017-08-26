@@ -1,0 +1,41 @@
+﻿<Window x:Class="PavigymDeveloperTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PavigymDeveloperTest"
+        xmlns:usercontrols="clr-namespace:PavigymDeveloperTest.UserControls"
+        Title="Pavigym Developer Test" 
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="ToolWindow"
+        ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight"
+        DataContext="{Binding Source={StaticResource Locator}, Path=MainViewModel}"
+        Style="{StaticResource WindowStyle}">
+    <DockPanel>
+        <!-- Title -->
+        <TextBlock Text="Pavigym Developer Test - Login Page" DockPanel.Dock="Top" Style="{StaticResource titleStyle}" />
+
+        <!-- Body -->
+        <ContentControl>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                
+                <!-- Login controls -->
+                <StackPanel Margin="3">
+                    <usercontrols:UCLoginTextBox />
+                    <usercontrols:UCPasswordTextBox />
+                </StackPanel>
+
+                <!-- Buttons -->
+                <StackPanel Orientation="Horizontal" Grid.Row="1">
+                    <Button Content="Login" Command="{Binding CommandLogin}" />
+                    <Button Content="Clear" Command="{Binding CommandClear}" />
+                </StackPanel>
+            </Grid>
+        </ContentControl>
+    </DockPanel>
+</Window>
