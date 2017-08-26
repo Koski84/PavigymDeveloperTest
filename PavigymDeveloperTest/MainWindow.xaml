@@ -32,8 +32,8 @@
 
                 <!-- Buttons -->
                 <StackPanel Orientation="Horizontal" Grid.Row="1">
-                    <Button Content="Login" Command="{Binding CommandLogin}" />
-                    <Button Content="Clear" Command="{Binding CommandClear}" />
+                    <Button Content="Login" Command="{Binding CommandLogin}" IsDefault="True" />
+                    <Button Content="Clear" Command="{Binding CommandClear}" IsCancel="True" />
                 </StackPanel>
             </Grid>
         </ContentControl>

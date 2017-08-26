@@ -6,6 +6,6 @@
              xmlns:local="clr-namespace:PavigymDeveloperTest.UserControls">
     <StackPanel>
         <TextBlock Text="Login" />
-        <TextBox Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox Text="{Binding LoginData.Login, UpdateSourceTrigger=PropertyChanged}" />
     </StackPanel>
 </UserControl>
