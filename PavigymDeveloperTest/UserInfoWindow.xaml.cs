@@ -1,13 +1,18 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
+using PavigymDeveloperTest.Model;
+using PavigymDeveloperTest.ViewModel;
 using System.Windows;
 
 namespace PavigymDeveloperTest
 {
-    public partial class MainWindow : Window
+    public partial class UserInfoWindow : Window
     {
-        public MainWindow()
+        public UserInfoWindow(UserData user)
         {
             InitializeComponent();
+
+            // Set user info
+            ViewModelLocator.UserInfoViewModel.User = user;
 
             // Listen to messages from viewmodel
             Messenger.Default.Register<MessageType>(this, OnMessageReceived);
@@ -15,10 +20,10 @@ namespace PavigymDeveloperTest
 
         private void OnMessageReceived(MessageType msg)
         {
-            switch(msg)
+            switch (msg)
             {
                 // Close window
-                case MessageType.CLOSE:
+                case MessageType.LOGOUT:
                     Close();
                     break;
             }

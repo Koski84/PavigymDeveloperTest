@@ -1,41 +1,78 @@
 ﻿<Window x:Class="PavigymDeveloperTest.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PavigymDeveloperTest"
         xmlns:usercontrols="clr-namespace:PavigymDeveloperTest.UserControls"
-        Title="Pavigym Developer Test" 
+        xmlns:virtualKeyboard="clr-namespace:VirtualKeyboard;assembly=VirtualKeyboard"
+        Title="Pavigym Developer Test - Login" 
         WindowStartupLocation="CenterScreen"
-        WindowStyle="ToolWindow"
-        ResizeMode="NoResize"
-        SizeToContent="WidthAndHeight"
+        Width="400"
+        SizeToContent="Height"
         DataContext="{Binding Source={StaticResource Locator}, Path=MainViewModel}"
-        Style="{StaticResource WindowStyle}">
-    <DockPanel>
+        Style="{StaticResource WindowStyle}"
+        Closing="Window_Closing">
+    <DockPanel Margin="10">
         <!-- Title -->
-        <TextBlock Text="Pavigym Developer Test - Login Page" DockPanel.Dock="Top" Style="{StaticResource titleStyle}" />
+        <usercontrols:UCTitle DockPanel.Dock="Top" />
+
+        <!-- Buttons -->
+        <DockPanel DockPanel.Dock="Bottom" Margin="0,5" LastChildFill="False">
+            <Button Command="{Binding CommandLogin}" IsDefault="True">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Img/login.png" />
+                    <TextBlock Text="Login" Margin="3,0,0,0" />
+                </StackPanel>
+            </Button>
+
+            <Button Command="{Binding CommandClear}" Margin="10,0,0,0"
+                    ToolTip="Removes the content within login and password fields">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Img/clear.png" />
+                    <TextBlock Text="Clear" Margin="3,0,0,0" />
+                </StackPanel>
+            </Button>
+
+            <Button Command="{Binding CommandClose}" IsCancel="True" DockPanel.Dock="Right">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Img/close.png" Width="22" />
+                    <TextBlock Text="Close" Margin="3,0,0,0" />
+                </StackPanel>
+            </Button>
+        </DockPanel>
 
         <!-- Body -->
-        <ContentControl>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                
-                <!-- Login controls -->
-                <StackPanel Margin="3">
-                    <usercontrols:UCLoginTextBox />
-                    <usercontrols:UCPasswordTextBox />
-                </StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-                <!-- Buttons -->
-                <StackPanel Orientation="Horizontal" Grid.Row="1">
-                    <Button Content="Login" Command="{Binding CommandLogin}" IsDefault="True" />
-                    <Button Content="Clear" Command="{Binding CommandClear}" IsCancel="True" />
-                </StackPanel>
-            </Grid>
-        </ContentControl>
+            <!-- Login controls -->
+            <StackPanel>
+                <usercontrols:UCLoginTextBox />
+                <usercontrols:UCPasswordTextBox />
+            </StackPanel>
+
+            <!-- Error Panel -->
+            <Border Background="IndianRed" Grid.Row="1" CornerRadius="3" Margin="0,3" Padding="2" BorderBrush="Black" BorderThickness="1">
+                <Border.Style>
+                    <!-- Hidden if no error -->
+                    <Style TargetType="Border">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ErrorMsg}" Value="{x:Null}">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+
+                <DockPanel>
+                    <Image Source="Img/error.png" Width="24" />
+                    <TextBlock Text="{Binding ErrorMsg}" Margin="3,0,0,0"
+                                   TextWrapping="Wrap" TextAlignment="Justify" VerticalAlignment="Center" />
+                </DockPanel>
+            </Border>
+        </Grid>
+
+        <virtualKeyboard:UCKeyboard />
     </DockPanel>
 </Window>

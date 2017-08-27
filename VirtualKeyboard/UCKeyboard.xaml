@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="VirtualKeyboard.UCKeyboard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <UserControl.Resources>
+        <ItemsPanelTemplate x:Key="ItemsPanelTemplate">
+            <StackPanel Orientation="Horizontal" />
+        </ItemsPanelTemplate>
+
+        <DataTemplate x:Key="ItemTemplate">
+            <Button Content="{Binding }" Width="30" Height="30" />
+        </DataTemplate>
+
+        <Style TargetType="ItemsControl">
+            <Setter Property="ItemsPanel" Value="{StaticResource ItemsPanelTemplate}" />
+            <Setter Property="ItemTemplate" Value="{StaticResource ItemTemplate}" />
+        </Style>
+    </UserControl.Resources>
+    
+    <Grid>
+        <StackPanel>
+            <!-- Row 1 -->
+            <ItemsControl ItemsSource="{Binding CharactersRow1, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+            <!-- Row 2 -->
+            <ItemsControl ItemsSource="{Binding CharactersRow2, RelativeSource={RelativeSource AncestorType=UserControl}}" Margin="10,0,0,0" />
+            <!-- Row 3 -->
+            <ItemsControl ItemsSource="{Binding CharactersRow3, RelativeSource={RelativeSource AncestorType=UserControl}}" Margin="30,0,0,0"/>
+        </StackPanel>
+    </Grid>
+
+</UserControl>

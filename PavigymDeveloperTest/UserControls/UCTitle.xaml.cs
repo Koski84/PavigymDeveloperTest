@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace VirtualKeyboard
+namespace PavigymDeveloperTest.UserControls
 {
     /// <summary>
-    /// Lógica de interacción para UCVirtualKeyboard.xaml
+    /// Lógica de interacción para UCTitle.xaml
     /// </summary>
-    public partial class UCVirtualKeyboard : UserControl
+    public partial class UCTitle : UserControl
     {
-        public UCVirtualKeyboard()
+        public UCTitle()
         {
             InitializeComponent();
         }

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6D59177C-5CB9-4171-BD21-9EDF3AD9C5F5}</ProjectGuid>
+    <ProjectGuid>{1DC281B0-921C-4060-BC7F-65DDD0A4650E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VirtualKeyboard</RootNamespace>
@@ -34,6 +34,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,19 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UCKey.xaml.cs">
-      <DependentUpon>UCKey.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UCVirtualKeyboard.xaml.cs">
-      <DependentUpon>UCVirtualKeyboard.xaml</DependentUpon>
+    <Compile Include="UCKeyboard.xaml.cs">
+      <DependentUpon>UCKeyboard.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="UCKey.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UCVirtualKeyboard.xaml">
+    <Page Include="UCKeyboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

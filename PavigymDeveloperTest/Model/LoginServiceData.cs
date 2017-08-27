@@ -26,8 +26,11 @@ namespace PavigymDeveloperTest.Model
             }
             set
             {
-                login = value;
-                RaisePropertyChanged();
+                if (login != value)
+                {
+                    login = value;
+                    RaisePropertyChanged();
+                }
             }
         }
         private string login;
@@ -41,8 +44,11 @@ namespace PavigymDeveloperTest.Model
             }
             set
             {
-                password = value;
-                RaisePropertyChanged();
+                if (password != value)
+                {
+                    password = value;
+                    RaisePropertyChanged();
+                }
             }
         }
         private string password;
