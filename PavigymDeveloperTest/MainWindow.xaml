@@ -4,8 +4,7 @@
         xmlns:usercontrols="clr-namespace:PavigymDeveloperTest.UserControls"
         Title="Pavigym Developer Test - Login" 
         WindowStartupLocation="CenterScreen"
-        Width="400"
-        SizeToContent="Height"
+        SizeToContent="WidthAndHeight"
         DataContext="{Binding Source={StaticResource Locator}, Path=MainViewModel}"
         Style="{StaticResource WindowStyle}"
         Closing="Window_Closing">
@@ -52,7 +51,7 @@
             </StackPanel>
 
             <!-- Error Panel -->
-            <Border Background="IndianRed" Grid.Row="1" CornerRadius="3" Margin="0,3" Padding="2" BorderBrush="Black" BorderThickness="1">
+            <Border Background="LightPink" Grid.Row="1" CornerRadius="3" Margin="0,3" Padding="2" BorderBrush="Black" BorderThickness="1">
                 <Border.Style>
                     <!-- Hidden if no error -->
                     <Style TargetType="Border">

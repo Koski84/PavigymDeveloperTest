@@ -5,7 +5,7 @@
     <StackPanel>
         <TextBlock Text="Login" />
         <DockPanel>
-            <Button DockPanel.Dock="Right" Width="30" 
+            <Button DockPanel.Dock="Right" Width="30" IsTabStop="False"
                     Command="{Binding CommandShowKeyboard}"
                     CommandParameter="LOGIN">
                 <Image Source="../img/keyboard.png" />
@@ -15,7 +15,7 @@
         <virtualKeyboard:UCKeyboard StringVar="{Binding LoginData.Login, Mode=TwoWay}" KeyboardType="KEYBOARD"
                                     HorizontalAlignment="Center">
             <virtualKeyboard:UCKeyboard.Style>
-                <Style TargetType="virtualKeyboard:UCKeyboard">
+                <Style TargetType="virtualKeyboard:UCKeyboard" BasedOn="{StaticResource VisibleAnimation}">
                     <Setter Property="Visibility" Value="Collapsed" />
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding VisibleKeyboard}" Value="LOGIN">
