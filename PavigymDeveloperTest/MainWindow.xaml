@@ -2,7 +2,6 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:usercontrols="clr-namespace:PavigymDeveloperTest.UserControls"
-        xmlns:virtualKeyboard="clr-namespace:VirtualKeyboard;assembly=VirtualKeyboard"
         Title="Pavigym Developer Test - Login" 
         WindowStartupLocation="CenterScreen"
         Width="400"
@@ -72,7 +71,5 @@
                 </DockPanel>
             </Border>
         </Grid>
-
-        <virtualKeyboard:UCKeyboard />
     </DockPanel>
 </Window>

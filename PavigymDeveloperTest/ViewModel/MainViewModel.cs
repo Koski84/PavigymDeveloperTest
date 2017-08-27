@@ -61,6 +61,25 @@ namespace PavigymDeveloperTest.ViewModel
         public RelayCommand CommandLogin { get; set; }
         public RelayCommand CommandClear { get; set; }
         public RelayCommand CommandClose { get; set; }
+        public RelayCommand<string> CommandShowKeyboard { get; set; }
+        
+        // Keyboard visibility
+        private VisibleKeyboard visibleKeyboard;
+        public VisibleKeyboard VisibleKeyboard
+        {
+            get
+            {
+                return visibleKeyboard;
+            }
+            set
+            {
+                if (visibleKeyboard != value)
+                {
+                    visibleKeyboard = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
@@ -70,6 +89,7 @@ namespace PavigymDeveloperTest.ViewModel
             CommandLogin = new RelayCommand(CommandLogin_Execute, CommandLogin_CanExecute);
             CommandClear = new RelayCommand(CommandClear_Execute, CommandClear_CanExecute);
             CommandClose = new RelayCommand(CommandClose_Execute);
+            CommandShowKeyboard = new RelayCommand<string>(CommandShowKeyboard_Execute);
 
             LoginData = new LoginServiceData()
             {
@@ -84,6 +104,7 @@ namespace PavigymDeveloperTest.ViewModel
             CommandLogin = null;
             CommandClear = null;
             CommandClose = null;
+            CommandShowKeyboard = null;
 
             LoginData = null;
 
@@ -149,6 +170,15 @@ namespace PavigymDeveloperTest.ViewModel
         private void CommandClose_Execute()
         {
             MessengerInstance.Send<MessageType>(MessageType.CLOSE);
+        }
+        #endregion
+
+        #region CommandShowKeyboard
+        private void CommandShowKeyboard_Execute(string keyboard)
+        {
+            var selectedKeyboard = (VisibleKeyboard)Enum.Parse(typeof(VisibleKeyboard), keyboard);
+
+            VisibleKeyboard = VisibleKeyboard == selectedKeyboard ? VisibleKeyboard.NONE : selectedKeyboard;
         }
         #endregion
 

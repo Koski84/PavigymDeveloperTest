@@ -45,6 +45,5 @@ namespace PavigymDeveloperTest.ViewModel
         {
             MessengerInstance.Send<MessageType>(MessageType.LOGOUT);
         }
-
     }
 }

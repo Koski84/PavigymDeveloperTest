@@ -61,7 +61,7 @@
                 <DockPanel>
                     <UniformGrid Columns="3" DockPanel.Dock="Top">
                         <!-- Sex -->
-                        <Image Height="80" HorizontalAlignment="Center">
+                        <Image Height="60" HorizontalAlignment="Center">
                             <Image.Style>
                                 <Style TargetType="Image">
                                     <Style.Triggers>
@@ -79,12 +79,12 @@
                         </Image>
 
                         <!-- Height -->
-                        <usercontrols:UCImageValue ImgSource="../img/height.png" Height="80" ToolTip="Height" 
+                        <usercontrols:UCImageValue ImgSource="../img/height.png" Height="60" ToolTip="Height" 
                                                    Value="{Binding User.Height}" 
                                                    Unit="cm" />
                         
                         <!-- Weight -->
-                        <usercontrols:UCImageValue ImgSource="../img/weight.png" Height="80" ToolTip="Weight" 
+                        <usercontrols:UCImageValue ImgSource="../img/weight.png" Height="60" ToolTip="Weight" 
                                                    Value="{Binding User.Weight}" 
                                                    Unit="kg" />
                     </UniformGrid>

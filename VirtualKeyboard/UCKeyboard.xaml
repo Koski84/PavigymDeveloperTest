@@ -7,7 +7,10 @@
         </ItemsPanelTemplate>
 
         <DataTemplate x:Key="ItemTemplate">
-            <Button Content="{Binding }" Width="30" Height="30" />
+            <Button Content="{Binding }" Width="30" Height="30" 
+                    Background="White" BorderBrush="{StaticResource PavigymBlue}"
+                    Command="{Binding CommandClick, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                    CommandParameter="{Binding }"/>
         </DataTemplate>
 
         <Style TargetType="ItemsControl">
@@ -17,13 +20,53 @@
     </UserControl.Resources>
     
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        
+        <!-- Keyboard -->
         <StackPanel>
+            <StackPanel.Style>
+                <Style TargetType="StackPanel">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding KeyboardType, RelativeSource={RelativeSource AncestorType=UserControl}}" Value="NUMPAD">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>    
+            </StackPanel.Style>
+            
+            <!-- Numbers Row -->
+            <ItemsControl ItemsSource="{Binding Numbers, RelativeSource={RelativeSource AncestorType=UserControl}}" />
             <!-- Row 1 -->
-            <ItemsControl ItemsSource="{Binding CharactersRow1, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+            <ItemsControl ItemsSource="{Binding CharactersRow1, RelativeSource={RelativeSource AncestorType=UserControl}}" Margin="10,0,0,0" />
             <!-- Row 2 -->
-            <ItemsControl ItemsSource="{Binding CharactersRow2, RelativeSource={RelativeSource AncestorType=UserControl}}" Margin="10,0,0,0" />
+            <ItemsControl ItemsSource="{Binding CharactersRow2, RelativeSource={RelativeSource AncestorType=UserControl}}" />
             <!-- Row 3 -->
-            <ItemsControl ItemsSource="{Binding CharactersRow3, RelativeSource={RelativeSource AncestorType=UserControl}}" Margin="30,0,0,0"/>
+            <ItemsControl ItemsSource="{Binding CharactersRow3, RelativeSource={RelativeSource AncestorType=UserControl}}" Margin="40,0,0,0" />
+        </StackPanel>
+
+        <!-- Number pad -->
+        <StackPanel Grid.Column="1">
+            <StackPanel.Style>
+                <Style TargetType="StackPanel">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding KeyboardType, RelativeSource={RelativeSource AncestorType=UserControl}}" Value="KEYBOARD">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Style>
+            
+            <!-- Row 1 -->
+            <ItemsControl ItemsSource="{Binding NumbersRow1, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+            <!-- Row 2 -->
+            <ItemsControl ItemsSource="{Binding NumbersRow2, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+            <!-- Row 3 -->
+            <ItemsControl ItemsSource="{Binding NumbersRow3, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+            <!-- Row 3 -->
+            <ItemsControl ItemsSource="{Binding NumbersRow4, RelativeSource={RelativeSource AncestorType=UserControl}}" />
         </StackPanel>
     </Grid>
 

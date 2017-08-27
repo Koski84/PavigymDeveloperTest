@@ -1,8 +1,29 @@
 ﻿<UserControl x:Class="PavigymDeveloperTest.UserControls.UCLoginTextBox"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:virtualKeyboard="clr-namespace:VirtualKeyboard;assembly=VirtualKeyboard">
     <StackPanel>
         <TextBlock Text="Login" />
-        <TextBox Text="{Binding LoginData.Login, UpdateSourceTrigger=PropertyChanged}" />
+        <DockPanel>
+            <Button DockPanel.Dock="Right" Width="30" 
+                    Command="{Binding CommandShowKeyboard}"
+                    CommandParameter="LOGIN">
+                <Image Source="../img/keyboard.png" />
+            </Button>
+            <TextBox Text="{Binding LoginData.Login, UpdateSourceTrigger=PropertyChanged}" />
+        </DockPanel>
+        <virtualKeyboard:UCKeyboard StringVar="{Binding LoginData.Login, Mode=TwoWay}" KeyboardType="KEYBOARD"
+                                    HorizontalAlignment="Center">
+            <virtualKeyboard:UCKeyboard.Style>
+                <Style TargetType="virtualKeyboard:UCKeyboard">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding VisibleKeyboard}" Value="LOGIN">
+                            <Setter Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </virtualKeyboard:UCKeyboard.Style>
+        </virtualKeyboard:UCKeyboard>
     </StackPanel>
 </UserControl>

@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>pavigym.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
@@ -78,12 +81,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="HTTPRequest.cs" />
-    <Compile Include="MessageType.cs" />
+    <Compile Include="Enums.cs" />
     <Compile Include="Model\GetUserInfoServiceResponse.cs" />
     <Compile Include="Model\LoginServiceData.cs" />
     <Compile Include="Model\ServiceData.cs" />
     <Compile Include="Model\ServiceResponse.cs" />
     <Compile Include="Model\UserData.cs" />
+    <Compile Include="PasswordBoxAssistant.cs" />
     <Compile Include="UserControls\UCImageValue.xaml.cs">
       <DependentUpon>UCImageValue.xaml</DependentUpon>
     </Compile>
@@ -195,6 +199,12 @@
       <Project>{1dc281b0-921c-4060-bc7f-65ddd0a4650e}</Project>
       <Name>VirtualKeyboard</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\keyboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pavigym.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
