@@ -242,7 +242,7 @@ namespace PavigymDeveloperTest.ViewModel
         /// </summary>
         /// <param name="serviceResponse">Service response</param>
         /// <returns>True if service returned status OK</returns>
-        private bool ProcessServiceResponse(ServiceResponse serviceResponse)
+        public bool ProcessServiceResponse(ServiceResponse serviceResponse)
         {
             switch (serviceResponse.Status)
             {

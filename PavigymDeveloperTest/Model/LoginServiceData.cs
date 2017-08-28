@@ -44,6 +44,9 @@ namespace PavigymDeveloperTest.Model
             }
             set
             {
+                if (value != null && value.Length > 4)
+                    value = value.Substring(0, 4);
+
                 if (password != value)
                 {
                     password = value;
